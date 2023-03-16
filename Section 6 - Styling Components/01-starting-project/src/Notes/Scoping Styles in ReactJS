@@ -1,0 +1,77 @@
+## Scoping Styles in ReactJS
+
+## Setting Styles inline-conditionally
+
+- Styles in CSS is not scoped in the project
+- Styles can affect any HTML tag if the class or id selector is matched anywhere in the project
+
+- { border: message && "1px solid red", backgroundColor: message && "coral" }
+- we can set conditional styles using conditional statements but we are setting it in-line that means that it will ignore other styles because inline styles have highest priority
+
+- Setting styles conditionally is not a best practice, becuase it makes code messay always have the highest proirity
+
+## Setting CSS Classes Dynamically
+
+- An alternative can be to add a class dynamically to the parent tag or the orginal tag dynamically when we the conditional is true
+
+- className={`form-control ${message && "inValid"}`} adds dynamically adding classes
+
+## Introducing Styled Components
+
+- We have previously added regular styles in JS by importing CSS files in the component.
+
+- We used regular CSS classes and selectors to apply our styles and managed states to add classes dynamically
+
+- But doing all this does not mean that the CSS is scoped to that particular component only. The CSS is right now globally set that means if any other tag on the page matches any CSS class than the styles will be applyed to that tag. This can result in unwanted stlying applied on irrelevent components
+
+- There are two approaches
+
+- 1: We can use a package called styled components
+- 2: We can CSS modules
+
+- 1: Using styled components to render styles conditionally
+  Step 1: install the npm package of styled component
+  Step 2: create a new component but the syntax is a little different. We will use styled component object to create component
+
+  const Button = styles.button``;
+  --------|-------------- |
+  component name ------ HTML element
+
+  `` backtick is a special syntax used in styled components to pass in CSS properties that are locally applied to that component only. Styled component does that by creating a unique class for each component
+
+  const Button = styled.button`
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #8b005d;
+  color: white;
+  background: #8b005d;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+
+  &:focus {
+  outline: none;
+  }
+
+  - next you need to pass the styles of that component and for the psudo-elements or for the button states you can use & to reference the current component
+
+- So how props work in styled components? Props are automatically forwarded to the component by CSS stlyed component
+
+- The other way of adding styles is to use CSS Modules
+- CSS modules are only available for the projects that are configured to support it.
+- Code transformation needs to be done before your code runs in the browser
+- create-react-app install is already confirgured to use CSS modules in the project
+
+- CSS module will replace the class with componenent_class\_\_uniqueHash thus, making sure that our styles are local to the component and the styles will not conflict with other classes of the same name
+
+- how to use CSS modules in your style sheet
+- 1. rename your style.css to style.module.css
+- 2. change css import statement to import varName from 'style.module.css'
+- inside className do className={`${varName.className}`}
+
+- Concept of CSS modules: It takes those css classes in the CSS file and basicaly change those class names to be unique
+- For every component it changes the class names of the classes importing in the componenet js file to be unique thus making it scoped localized
+
+- we can access classes as object properties (i.e varName) by using bracket notation if classes in CSS file uses kebab-case or dot notation if uses camelCase
+
+- Using Media Queries in CSS modules
+- simply add the media queries in the css.module file

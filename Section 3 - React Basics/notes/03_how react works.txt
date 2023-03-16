@@ -1,0 +1,10 @@
+React uses a declarative approach. In react we define the desired target state(s) and let react decide / figure out the actual JavaScript DOM instructions
+
+React allows you to create re-usable and reactive componenets consisting of HTML and JavaScript and CSS
+
+Example: we can just define in js file that we want <p> tag inside a div and react will automatically write all the logic for it to show the <p> tag dynamically on the screen
+
+In regular JS you would select the parent element and then create the node then append that create node to the parent node and assign a textContent to it just to show a <p> tag on the screen. Now this is a tedeous job if you want to do it for hundreds of elements. This is called an impretive approach. Because you are giving clear step by step instruction what JS should be doing inside the browser
+
+
+
