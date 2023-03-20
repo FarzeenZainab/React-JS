@@ -1,0 +1,14 @@
+.dropzone {
+  background-color: #f7f7f7;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  border: 1px dashed #cccccc;
+  margin-top: 20px;
+  cursor: pointer;
+}
