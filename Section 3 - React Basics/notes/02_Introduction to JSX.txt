@@ -1,6 +1,0 @@
-Introduction to JSX:
-JSX stands for JS XML
-
-We got html code in JS. The JSX code is transformed to standard HTML when we start the npm process. React will transform this code behind the scences so we dont have to write each steps ourselves
-
-you can check this inside sources tab and fine App() function there

@@ -1,3 +1,0 @@
-React Router V6
-
-1. Creating Routes in react app using react router V6
